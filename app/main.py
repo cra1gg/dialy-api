@@ -6,6 +6,8 @@ import json
 from phonenumbers import geocoder
 from flask_cors import CORS
 from threading import Thread
+from flask import request, jsonify, render_template
+
 
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
