@@ -7,7 +7,6 @@ app = flask.Flask(__name__)
 app.config["DEBUG"] = True
 
 
-load_dotenv()
 app = Flask('')
 app._static_folder = "templates/static/"
 CORS(app)
