@@ -4,6 +4,7 @@ import flask
 from flask import Flask
 import json
 from phonenumbers import geocoder
+from flask_cors import CORS
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
 
