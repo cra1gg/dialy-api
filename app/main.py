@@ -6,6 +6,19 @@ from phonenumbers import geocoder
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
 
+
+load_dotenv()
+app = Flask('')
+app._static_folder = "templates/static/"
+CORS(app)
+
+def run():
+    app.run(host='0.0.0.0',port=8080)
+
+@app.route('/')
+def home():
+    return render_template("index.html")
+
 @app.route('/lookup/<phonenum>', methods=['GET'])
 def lookup(phonenum):
     returndict = {}
@@ -39,4 +52,7 @@ def get_type(numtype):
         return "Voicemail"
     else:
         return "Unknown"
-app.run()
+
+def keep_alive():  
+    t = Thread(target=run)
+    t.start()
